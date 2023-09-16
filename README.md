@@ -1,2 +1,1 @@
-# cv-application
-React project (TOP)
+# CV builder
