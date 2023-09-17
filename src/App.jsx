@@ -1,68 +1,51 @@
 import { useState } from "react";
-import "./personal.css";
-export default function Personal() {
-  const [inputValues, setInputValues] = useState({
+import Personal from "./components/Personal";
+import "./app.css";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+
+export default function App() {
+  const [personalValues, setPersonalValues] = useState({
     name: "",
     mail: "",
     phone: "",
     adress: "",
   });
 
-  function handleChange(key, value) {
-    setInputValues({ ...inputValues, [key]: value });
+  const [educationValues, setEducationValues] = useState({
+    school: "",
+    degree: "",
+    startingDateEdu: "",
+    endingDateEdu: "",
+    locationEdu: "",
+  });
+
+  const [expValues, setExpValues] = useState({
+    company: "",
+    position: "",
+    startingDateXP: "",
+    endingDateXP: "",
+    locationXP: "",
+    desc: "",
+  });
+
+  function handlePersonalChange(key, value) {
+    setPersonalValues({ ...personalValues, [key]: value });
+  }
+
+  function handleEducationChange(key, value) {
+    setEducationValues({ ...educationValues, [key]: value });
+  }
+
+  function handleExpChange(key, value) {
+    setExpValues({ ...expValues, [key]: value });
   }
 
   return (
     <>
-      <div className="labels">
-        <Input
-          forInput="name"
-          labelText="Full name"
-          type="text"
-          onChange={handleChange}
-        />
-        <Input
-          forInput="mail"
-          labelText="Email"
-          type="email"
-          onChange={handleChange}
-        />
-        <Input
-          forInput="phone"
-          labelText="Phone number"
-          type="tel"
-          onChange={handleChange}
-        />
-        <Input
-          forInput="adress"
-          labelText="Adress"
-          type="text"
-          onChange={handleChange}
-        />
-      </div>
-      <div className="output-para">
-        <Output value={inputValues.name} />
-        <Output value={inputValues.mail} />
-        <Output value={inputValues.phone} />
-        <Output value={inputValues.adress} />
-      </div>
+      <Personal handleChange={handlePersonalChange} />
+      <Education handleChange={handleEducationChange} />
+      <Experience handleChange={handleExpChange} />
     </>
   );
-}
-
-function Input({ forInput, labelText, type, onChange }) {
-  function sendValue(e) {
-    onChange(forInput, e.target.value);
-  }
-
-  return (
-    <>
-      <label htmlFor={forInput}>{labelText}</label>
-      <input type={type} id={forInput} onChange={sendValue} />
-    </>
-  );
-}
-
-function Output({ value }) {
-  return <p>{value}</p>;
 }

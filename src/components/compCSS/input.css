@@ -1,6 +1,4 @@
-.labels {
+.label-input {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  gap: 10px;
 }
