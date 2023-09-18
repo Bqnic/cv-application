@@ -1,3 +1,7 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
 .personal-details,
 .education,
 .xp {
@@ -9,4 +13,11 @@
 .dates {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px 40px;
 }

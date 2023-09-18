@@ -1,0 +1,52 @@
+h1,
+h2 {
+  text-align: center;
+}
+h2 {
+  background-color: rgb(255, 245, 233);
+  padding: 4px;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+.outputs {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  margin: 20px 40px;
+  height: 842px;
+  width: 595px;
+}
+.header {
+  background-color: lightblue;
+  padding: 25px;
+}
+.personal-info {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.education-info,
+.exp-info {
+  display: flex;
+  gap: 60px;
+  margin-left: 40px;
+}
+.date-and-location {
+  display: flex;
+  flex-direction: column;
+}
+.school-and-degree,
+.company {
+  display: flex;
+  flex-direction: column;
+}
+.school-and-degree p:first-child,
+.company p:first-child {
+  font-weight: 600;
+}
+.company p:nth-child(2) {
+  margin-bottom: 10px;
+}

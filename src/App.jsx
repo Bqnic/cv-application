@@ -3,6 +3,7 @@ import Personal from "./components/Personal";
 import "./app.css";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Resume from "./components/Resume";
 
 export default function App() {
   const [personalValues, setPersonalValues] = useState({
@@ -42,10 +43,17 @@ export default function App() {
   }
 
   return (
-    <>
-      <Personal handleChange={handlePersonalChange} />
-      <Education handleChange={handleEducationChange} />
-      <Experience handleChange={handleExpChange} />
-    </>
+    <div className="container">
+      <div className="inputs">
+        <Personal handleChange={handlePersonalChange} />
+        <Education handleChange={handleEducationChange} />
+        <Experience handleChange={handleExpChange} />
+      </div>
+      <Resume
+        personalValues={personalValues}
+        educationValues={educationValues}
+        expValues={expValues}
+      />
+    </div>
   );
 }
