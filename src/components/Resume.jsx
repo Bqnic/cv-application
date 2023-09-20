@@ -1,6 +1,11 @@
 import "./compCSS/resume.css";
 
-export default function Resume({ personalValues, educationValues, expValues }) {
+export default function Resume({
+  personalValues,
+  educationValues,
+  expValues,
+  allEducationValues,
+}) {
   return (
     <div className="outputs">
       <div className="header">
@@ -12,6 +17,20 @@ export default function Resume({ personalValues, educationValues, expValues }) {
         </div>
       </div>
       <h2>Education</h2>
+      {allEducationValues.map((element, index) => (
+        <div key={index} className="education-info">
+          <div className="date-and-location">
+            <p>
+              {element.startingDateEdu} - {element.endingDateEdu}
+            </p>
+            <p>{element.locationEdu}</p>
+          </div>
+          <div className="school-and-degree">
+            <p>{element.school}</p>
+            <p>{element.degree}</p>
+          </div>
+        </div>
+      ))}
       <div className="education-info">
         <div className="date-and-location">
           <p>
