@@ -5,6 +5,7 @@ export default function Resume({
   educationValues,
   expValues,
   allEducationValues,
+  allExpValues,
 }) {
   return (
     <div className="outputs">
@@ -44,6 +45,21 @@ export default function Resume({
         </div>
       </div>
       <h2>Experience</h2>
+      {allExpValues.map((element, index) => (
+        <div key={index} className="exp-info">
+          <div className="date-and-location">
+            <p>
+              {element.startingDateXP} - {element.endingDateXP}
+            </p>
+            <p>{element.locationXP}</p>
+          </div>
+          <div className="company">
+            <p>{element.company}</p>
+            <p>{element.position}</p>
+            <p>{element.desc}</p>
+          </div>
+        </div>
+      ))}
       <div className="exp-info">
         <div className="date-and-location">
           <p>

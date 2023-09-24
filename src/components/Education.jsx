@@ -12,10 +12,6 @@ export default function Education({
   const [oldEduValue, setOldEduValue] = useState({});
   const [showInputs, setShowInputs] = useState(0);
 
-  function changeShowInputs(i) {
-    setShowInputs(i);
-  }
-
   function changeIndex(i) {
     setEduIndex(i);
     setOldEduValue(allEducationValues[i]);
@@ -26,7 +22,7 @@ export default function Education({
   }
 
   function resetEducationValues() {
-    setAllEducationValues({
+    setEducationValues({
       school: "",
       degree: "",
       startingDateEdu: "",
@@ -109,7 +105,7 @@ export default function Education({
             onClick={() => {
               if (educationValues.school.trim() !== "") {
                 updateArray();
-                changeShowInputs(0);
+                setShowInputs(0);
               } else alert("Enter school... NOW!");
             }}
           >
@@ -119,7 +115,7 @@ export default function Education({
             type="button"
             onClick={() => {
               resetEducationValues();
-              changeShowInputs(0);
+              setShowInputs(0);
             }}
           >
             Cancel
@@ -135,7 +131,7 @@ export default function Education({
             key={index}
             className="card-education"
             onClick={() => {
-              changeShowInputs(2);
+              setShowInputs(2);
               changeIndex(index);
             }}
           >
@@ -153,10 +149,7 @@ export default function Education({
             </button>
           </button>
         ))}
-        <button
-          className="adding-education"
-          onClick={() => changeShowInputs(1)}
-        >
+        <button className="adding-education" onClick={() => setShowInputs(1)}>
           Add new education
         </button>
       </div>
@@ -212,7 +205,7 @@ export default function Education({
             type="button"
             onClick={() => {
               if (allEducationValues[eduIndex].school.trim() !== "") {
-                changeShowInputs(0);
+                setShowInputs(0);
               } else alert("Enter school... NOW!");
             }}
           >
@@ -223,7 +216,7 @@ export default function Education({
             onClick={() => {
               resetEducationValues();
               revertEducationArray(oldEduValue, eduIndex);
-              changeShowInputs(0);
+              setShowInputs(0);
             }}
           >
             Cancel
