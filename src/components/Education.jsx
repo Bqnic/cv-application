@@ -3,30 +3,68 @@ import Input from "./Input";
 import "./compCSS/education.css";
 
 export default function Education({
-  currentValue,
-  handleChange,
-  updateArray,
-  educationArr,
-  showInputs,
-  changeShowInputs,
-  changeEducationArray,
-  revertEducationArray,
-  deleteFromEducationArray,
+  educationValues,
+  allEducationValues,
+  setAllEducationValues,
+  setEducationValues,
 }) {
   const [eduIndex, setEduIndex] = useState(0);
   const [oldEduValue, setOldEduValue] = useState({});
+  const [showInputs, setShowInputs] = useState(0);
+
+  function changeShowInputs(i) {
+    setShowInputs(i);
+  }
 
   function changeIndex(i) {
     setEduIndex(i);
-    setOldEduValue(educationArr[i]);
+    setOldEduValue(allEducationValues[i]);
   }
 
-  function cleanInputs() {
-    currentValue.school = "";
-    currentValue.degree = "";
-    currentValue.startingDateEdu = "";
-    currentValue.endingDateEdu = "";
-    currentValue.locationEdu = "";
+  function handleChange(key, value) {
+    setEducationValues({ ...educationValues, [key]: value });
+  }
+
+  function resetEducationValues() {
+    setAllEducationValues({
+      school: "",
+      degree: "",
+      startingDateEdu: "",
+      endingDateEdu: "",
+      locationEdu: "",
+    });
+  }
+
+  function deleteFromEducationArray(index) {
+    let updatedEducationArray = [...allEducationValues];
+    updatedEducationArray.splice(index, 1);
+    setAllEducationValues(updatedEducationArray);
+  }
+
+  function revertEducationArray(value, index) {
+    let updatedEducationArray = [...allEducationValues];
+    updatedEducationArray[index] = value;
+    setAllEducationValues(updatedEducationArray);
+  }
+
+  function changeEducationArray(key, value, index) {
+    let updatedEducationValue = { ...allEducationValues[index] };
+    updatedEducationValue[key] = value;
+    let updatedEducationArray = [...allEducationValues];
+    updatedEducationArray[index] = updatedEducationValue;
+
+    setAllEducationValues(updatedEducationArray);
+  }
+
+  function updateArray() {
+    setAllEducationValues([...allEducationValues, educationValues]);
+    setEducationValues({
+      school: "",
+      degree: "",
+      startingDateEdu: "",
+      endingDateEdu: "",
+      locationEdu: "",
+    });
   }
 
   if (showInputs === 1)
@@ -69,7 +107,7 @@ export default function Education({
           <button
             type="button"
             onClick={() => {
-              if (currentValue.school.trim() !== "") {
+              if (educationValues.school.trim() !== "") {
                 updateArray();
                 changeShowInputs(0);
               } else alert("Enter school... NOW!");
@@ -80,7 +118,7 @@ export default function Education({
           <button
             type="button"
             onClick={() => {
-              cleanInputs();
+              resetEducationValues();
               changeShowInputs(0);
             }}
           >
@@ -92,7 +130,7 @@ export default function Education({
   else if (showInputs === 0)
     return (
       <div className="show-education">
-        {educationArr.map((element, index) => (
+        {allEducationValues.map((element, index) => (
           <button
             key={index}
             className="card-education"
@@ -133,7 +171,7 @@ export default function Education({
             labelText="School"
             type="text"
             onChange={changeEducationArray}
-            value={educationArr[eduIndex].school}
+            value={allEducationValues[eduIndex].school}
             index={eduIndex}
           />
           <Input
@@ -141,7 +179,7 @@ export default function Education({
             labelText="Degree"
             type="text"
             onChange={changeEducationArray}
-            value={educationArr[eduIndex].degree}
+            value={allEducationValues[eduIndex].degree}
             index={eduIndex}
           />
           <div className="dates">
@@ -150,7 +188,7 @@ export default function Education({
               labelText="Start date"
               type="text"
               onChange={changeEducationArray}
-              value={educationArr[eduIndex].startingDateEdu}
+              value={allEducationValues[eduIndex].startingDateEdu}
               index={eduIndex}
             />
             <Input
@@ -158,7 +196,7 @@ export default function Education({
               labelText="End date"
               type="text"
               onChange={changeEducationArray}
-              value={educationArr[eduIndex].endingDateEdu}
+              value={allEducationValues[eduIndex].endingDateEdu}
               index={eduIndex}
             />
           </div>
@@ -167,13 +205,13 @@ export default function Education({
             labelText="Location"
             type="text"
             onChange={changeEducationArray}
-            value={educationArr[eduIndex].locationEdu}
+            value={allEducationValues[eduIndex].locationEdu}
             index={eduIndex}
           />
           <button
             type="button"
             onClick={() => {
-              if (educationArr[eduIndex].school.trim() !== "") {
+              if (allEducationValues[eduIndex].school.trim() !== "") {
                 changeShowInputs(0);
               } else alert("Enter school... NOW!");
             }}
@@ -183,7 +221,7 @@ export default function Education({
           <button
             type="button"
             onClick={() => {
-              cleanInputs();
+              resetEducationValues();
               revertEducationArray(oldEduValue, eduIndex);
               changeShowInputs(0);
             }}

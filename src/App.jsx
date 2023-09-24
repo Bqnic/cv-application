@@ -22,11 +22,6 @@ export default function App() {
   });
 
   const [allEducationValues, setAllEducationValues] = useState([]);
-  const [showInputs, setShowInputs] = useState(0);
-
-  function handleShowInputsChange(i) {
-    setShowInputs(i);
-  }
 
   const [expValues, setExpValues] = useState({
     company: "",
@@ -41,42 +36,6 @@ export default function App() {
     setPersonalValues({ ...personalValues, [key]: value });
   }
 
-  function handleEducationChange(key, value) {
-    setEducationValues({ ...educationValues, [key]: value });
-  }
-
-  function deleteFromEducationArray(index) {
-    let updatedEducationArray = [...allEducationValues];
-    updatedEducationArray.splice(index, 1);
-    setAllEducationValues(updatedEducationArray);
-  }
-
-  function revertEducationArray(value, index) {
-    let updatedEducationArray = [...allEducationValues];
-    updatedEducationArray[index] = value;
-    setAllEducationValues(updatedEducationArray);
-  }
-
-  function changeEducationArray(key, value, index) {
-    let updatedEducationValue = { ...allEducationValues[index] };
-    updatedEducationValue[key] = value;
-    let updatedEducationArray = [...allEducationValues];
-    updatedEducationArray[index] = updatedEducationValue;
-
-    setAllEducationValues(updatedEducationArray);
-  }
-
-  function updateEducationArray() {
-    setAllEducationValues([...allEducationValues, educationValues]);
-    setEducationValues({
-      school: "",
-      degree: "",
-      startingDateEdu: "",
-      endingDateEdu: "",
-      locationEdu: "",
-    });
-  }
-
   function handleExpChange(key, value) {
     setExpValues({ ...expValues, [key]: value });
   }
@@ -86,15 +45,10 @@ export default function App() {
       <div className="inputs">
         <Personal handleChange={handlePersonalChange} />
         <Education
-          currentValue={educationValues}
-          handleChange={handleEducationChange}
-          updateArray={updateEducationArray}
-          educationArr={allEducationValues}
-          showInputs={showInputs}
-          changeShowInputs={handleShowInputsChange}
-          changeEducationArray={changeEducationArray}
-          revertEducationArray={revertEducationArray}
-          deleteFromEducationArray={deleteFromEducationArray}
+          educationValues={educationValues}
+          allEducationValues={allEducationValues}
+          setAllEducationValues={setAllEducationValues}
+          setEducationValues={setEducationValues}
         />
         <Experience handleChange={handleExpChange} />
       </div>
