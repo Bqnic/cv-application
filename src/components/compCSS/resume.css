@@ -1,10 +1,17 @@
-h1,
-h2 {
+h1 {
   text-align: center;
+  color: white;
 }
-h2 {
-  background-color: rgb(255, 245, 233);
-  padding: 4px;
+.sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0eb;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 40px;
+  margin-bottom: 20px;
+  padding: 4px 0px;
 }
 p {
   margin: 0;
@@ -19,23 +26,33 @@ p {
   width: 595px;
 }
 .header {
-  background-color: lightblue;
-  padding: 25px;
+  background-color: #243c54;
+  padding: 36px 24px;
 }
 .personal-info {
   display: flex;
   gap: 20px;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+.personal-info p {
+  display: flex;
+}
+.personal-info p img {
+  width: 20px;
+  height: auto;
 }
 .education-info,
 .exp-info {
   display: flex;
   gap: 60px;
   margin-left: 40px;
+  margin-bottom: 10px;
 }
 .date-and-location {
   display: flex;
+  min-width: 150px;
   flex-direction: column;
 }
 .school-and-degree,

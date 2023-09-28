@@ -4,6 +4,7 @@ import "./app.css";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Resume from "./components/Resume";
+import "./components/compCSS/edu-exp.css";
 
 export default function App() {
   const [personalValues, setPersonalValues] = useState({

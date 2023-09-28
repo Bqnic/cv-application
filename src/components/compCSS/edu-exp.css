@@ -1,11 +1,11 @@
-.show-education {
+.show {
   display: flex;
   flex-direction: column;
 }
-.show-education {
+.show {
   gap: 10px;
 }
-.card-education {
+.card {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,17 +13,17 @@
   padding: 10px;
   border: none;
 }
-.card-education:hover,
-.adding-education:hover {
+.card:hover,
+.adding:hover {
   border: 1px solid black;
 }
-.adding-education {
+.adding {
   background-color: #f1f5f9;
   padding: 10px;
   border-radius: 20px;
   border: none;
 }
-.card-education p:first-child {
+.card p:first-child {
   font-size: 1.2rem;
   font-weight: 600;
 }

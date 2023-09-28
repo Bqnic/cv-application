@@ -12,17 +12,41 @@ export default function Resume({
       <div className="header">
         <h1>{personalValues.name}</h1>
         <div className="personal-info">
-          <p>{personalValues.mail}</p>
-          <p>{personalValues.phone}</p>
-          <p>{personalValues.adress}</p>
+          <p>
+            {personalValues.mail !== "" ? (
+              <img src="../public/email.svg"></img>
+            ) : null}{" "}
+            {personalValues.mail}
+          </p>
+          <p>
+            {personalValues.phone !== "" ? (
+              <img src="../public/phone.svg"></img>
+            ) : null}{" "}
+            {personalValues.phone}
+          </p>
+          <p>
+            {personalValues.adress !== "" ? (
+              <img src="../public/map-marker.svg"></img>
+            ) : null}{" "}
+            {personalValues.adress}
+          </p>
         </div>
       </div>
-      <h2>Education</h2>
+      {allEducationValues.length > 0 ||
+      educationValues.school !== "" ||
+      educationValues.degree !== "" ||
+      educationValues.startingDateEdu !== "" ||
+      educationValues.endingDateEdu !== "" ||
+      educationValues.locationEdu !== "" ? (
+        <div className="sections"> Education </div>
+      ) : null}
       {allEducationValues.map((element, index) => (
         <div key={index} className="education-info">
           <div className="date-and-location">
             <p>
-              {element.startingDateEdu} - {element.endingDateEdu}
+              {element.startingDateEdu}{" "}
+              {element.endingDateEdu !== "" ? "-" : null}{" "}
+              {element.endingDateEdu}
             </p>
             <p>{element.locationEdu}</p>
           </div>
@@ -35,7 +59,9 @@ export default function Resume({
       <div className="education-info">
         <div className="date-and-location">
           <p>
-            {educationValues.startingDateEdu} - {educationValues.endingDateEdu}
+            {educationValues.startingDateEdu}{" "}
+            {educationValues.endingDateEdu !== "" ? "-" : null}{" "}
+            {educationValues.endingDateEdu}
           </p>
           <p>{educationValues.locationEdu}</p>
         </div>
@@ -44,12 +70,21 @@ export default function Resume({
           <p>{educationValues.degree}</p>
         </div>
       </div>
-      <h2>Experience</h2>
+      {allExpValues.length > 0 ||
+      expValues.startingDateXP !== "" ||
+      expValues.endingDateXP !== "" ||
+      expValues.locationXP !== "" ||
+      expValues.company !== "" ||
+      expValues.position !== "" ||
+      expValues.desc !== "" ? (
+        <div className="sections">Experience</div>
+      ) : null}
       {allExpValues.map((element, index) => (
         <div key={index} className="exp-info">
           <div className="date-and-location">
             <p>
-              {element.startingDateXP} - {element.endingDateXP}
+              {element.startingDateXP}{" "}
+              {element.endingDateXP !== "" ? "-" : null} {element.endingDateXP}
             </p>
             <p>{element.locationXP}</p>
           </div>
@@ -63,7 +98,9 @@ export default function Resume({
       <div className="exp-info">
         <div className="date-and-location">
           <p>
-            {expValues.startingDateXP} - {expValues.endingDateXP}
+            {expValues.startingDateXP}{" "}
+            {expValues.endingDateXP !== "" ? "-" : null}{" "}
+            {expValues.endingDateXP}
           </p>
           <p>{expValues.locationXP}</p>
         </div>

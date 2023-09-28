@@ -120,11 +120,11 @@ export default function Experience({
     );
   } else if (showInputs === 0) {
     return (
-      <div className="show-education">
+      <div className="show">
         {allExpValues.map((element, index) => (
           <button
             key={index}
-            className="card-education"
+            className="card"
             onClick={() => {
               setShowInputs(2);
               setExpIndex(index);
@@ -145,7 +145,7 @@ export default function Experience({
             </button>
           </button>
         ))}
-        <button className="adding-education" onClick={() => setShowInputs(1)}>
+        <button className="adding" onClick={() => setShowInputs(1)}>
           Add new experience
         </button>
       </div>

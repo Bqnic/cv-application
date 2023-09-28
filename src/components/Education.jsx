@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Input from "./Input";
-import "./compCSS/education.css";
 
 export default function Education({
   educationValues,
@@ -125,11 +124,11 @@ export default function Education({
     );
   else if (showInputs === 0)
     return (
-      <div className="show-education">
+      <div className="show">
         {allEducationValues.map((element, index) => (
           <button
             key={index}
-            className="card-education"
+            className="card"
             onClick={() => {
               setShowInputs(2);
               changeIndex(index);
@@ -149,7 +148,7 @@ export default function Education({
             </button>
           </button>
         ))}
-        <button className="adding-education" onClick={() => setShowInputs(1)}>
+        <button className="adding" onClick={() => setShowInputs(1)}>
           Add new education
         </button>
       </div>
