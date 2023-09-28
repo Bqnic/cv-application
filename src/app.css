@@ -7,7 +7,7 @@
 .xp {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 500px;
   gap: 10px;
 }
 .dates {

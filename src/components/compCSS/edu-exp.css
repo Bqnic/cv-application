@@ -27,3 +27,20 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
+.save,
+.cancel {
+  border-radius: 12px;
+  padding: 6px;
+  border: 2px solid black;
+  font-size: 0.8rem;
+  background: none;
+  transition: 0.4s;
+}
+.save:hover {
+  background-color: lightgreen;
+  transition: 0.4s;
+}
+.cancel:hover {
+  background-color: pink;
+  transition: 0.4s;
+}

@@ -100,6 +100,7 @@ export default function Education({
             onChange={handleChange}
           />
           <button
+            className="save"
             type="button"
             onClick={() => {
               if (educationValues.school.trim() !== "") {
@@ -111,6 +112,7 @@ export default function Education({
             Save
           </button>
           <button
+            className="cancel"
             type="button"
             onClick={() => {
               resetEducationValues();
@@ -201,6 +203,7 @@ export default function Education({
             index={eduIndex}
           />
           <button
+            className="save"
             type="button"
             onClick={() => {
               if (allEducationValues[eduIndex].school.trim() !== "") {
@@ -211,6 +214,7 @@ export default function Education({
             Save
           </button>
           <button
+            className="cancel"
             type="button"
             onClick={() => {
               resetEducationValues();

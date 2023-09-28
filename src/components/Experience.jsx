@@ -96,6 +96,7 @@ export default function Experience({
             onChange={handleChange}
           />
           <button
+            className="save"
             type="button"
             onClick={() => {
               if (expValues.company.trim() !== "") {
@@ -107,6 +108,7 @@ export default function Experience({
             Save
           </button>
           <button
+            className="cancel"
             type="button"
             onClick={() => {
               resetExpValues();
@@ -206,6 +208,7 @@ export default function Experience({
             index={expIndex}
           />
           <button
+            className="save"
             type="button"
             onClick={() => {
               if (allExpValues[expIndex].company.trim() !== "") {
@@ -216,6 +219,7 @@ export default function Experience({
             Save
           </button>
           <button
+            className="cancel"
             type="button"
             onClick={() => {
               resetExpValues();
