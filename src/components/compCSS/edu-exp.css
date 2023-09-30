@@ -44,3 +44,23 @@
   background-color: pink;
   transition: 0.4s;
 }
+.closedDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 12px;
+}
+.closedDiv:hover {
+  cursor: pointer;
+}
+.closedDiv p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.closedDiv img {
+  width: 20px;
+  height: auto;
+}

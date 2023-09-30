@@ -13,20 +13,18 @@ export default function Resume({
         <h1>{personalValues.name}</h1>
         <div className="personal-info">
           <p>
-            {personalValues.mail !== "" ? (
-              <img src="../public/email.svg"></img>
-            ) : null}{" "}
+            {personalValues.mail !== "" ? <img src="../email.svg"></img> : null}{" "}
             {personalValues.mail}
           </p>
           <p>
             {personalValues.phone !== "" ? (
-              <img src="../public/phone.svg"></img>
+              <img src="../phone.svg"></img>
             ) : null}{" "}
             {personalValues.phone}
           </p>
           <p>
             {personalValues.adress !== "" ? (
-              <img src="../public/map-marker.svg"></img>
+              <img src="../map-marker.svg"></img>
             ) : null}{" "}
             {personalValues.adress}
           </p>

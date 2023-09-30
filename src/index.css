@@ -15,3 +15,6 @@ input:focus {
   outline: 2px solid lightblue;
   transition: 0.5s;
 }
+legend {
+  font-size: 1.4rem;
+}

@@ -35,6 +35,8 @@ export default function App() {
 
   const [allExpValues, setAllExpValues] = useState([]);
 
+  const [showEduOrExp, setShowEduOrExp] = useState(0);
+
   function handlePersonalChange(key, value) {
     setPersonalValues({ ...personalValues, [key]: value });
   }
@@ -48,12 +50,16 @@ export default function App() {
           allEducationValues={allEducationValues}
           setAllEducationValues={setAllEducationValues}
           setEducationValues={setEducationValues}
+          showEduOrExp={showEduOrExp}
+          setShowEduOrExp={setShowEduOrExp}
         />
         <Experience
           expValues={expValues}
           setExpValues={setExpValues}
           allExpValues={allExpValues}
           setAllExpValues={setAllExpValues}
+          showEduOrExp={showEduOrExp}
+          setShowEduOrExp={setShowEduOrExp}
         />
       </div>
       <Resume
