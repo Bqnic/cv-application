@@ -5,6 +5,7 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Resume from "./components/Resume";
 import "./components/compCSS/edu-exp.css";
+import { exampleData } from "./example-data";
 
 export default function App() {
   const [personalValues, setPersonalValues] = useState({
@@ -44,7 +45,47 @@ export default function App() {
   return (
     <div className="container">
       <div className="inputs">
-        <Personal handleChange={handlePersonalChange} />
+        <div className="theBtns">
+          <button
+            className="exampleBtn"
+            onClick={() => {
+              setPersonalValues(exampleData.personalInfo);
+              setAllEducationValues([exampleData.educationInfo]);
+              setAllExpValues(exampleData.expInfo);
+            }}
+          >
+            Load example data
+          </button>
+          <button
+            className="exampleBtn"
+            onClick={() => {
+              setPersonalValues({ name: "", mail: "", phone: "", adress: "" });
+              setEducationValues({
+                school: "",
+                degree: "",
+                startingDateEdu: "",
+                endingDateEdu: "",
+                locationEdu: "",
+              });
+              setAllEducationValues([]);
+              setExpValues({
+                company: "",
+                position: "",
+                startingDateXP: "",
+                endingDateXP: "",
+                locationXP: "",
+                desc: "",
+              });
+              setAllExpValues([]);
+            }}
+          >
+            Reset CV
+          </button>
+        </div>
+        <Personal
+          handleChange={handlePersonalChange}
+          personalValues={personalValues}
+        />
         <Education
           educationValues={educationValues}
           allEducationValues={allEducationValues}

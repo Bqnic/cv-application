@@ -21,3 +21,24 @@
   gap: 30px;
   margin: 20px 40px;
 }
+.theBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.exampleBtn {
+  background: none;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 1rem;
+  width: 200px;
+  transition: 0.4s;
+}
+.exampleBtn:hover {
+  padding: 8px;
+  width: 240px;
+  transition: 0.4s;
+}
